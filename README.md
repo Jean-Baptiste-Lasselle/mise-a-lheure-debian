@@ -1,7 +1,9 @@
 # mise-a-l-heure
 
 Synchronisation sur un serveur NTP, et mise à joru de l'horodatage système.
-Serveur NTP publics internet de strate 2
+Serveur NTP publics internet de strate 2.
+
+Valable pour un système Cent OS 7
 
 ### Dépendances 
 
