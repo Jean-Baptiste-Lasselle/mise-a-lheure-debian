@@ -32,13 +32,15 @@ mkdir -p $PROVISONING_HOME
 cd $PROVISONING_HOME
 git clone "$URI_REPO_RECETTE" .
 sudo chmod +x operations.sh
+# Pour les US : 0.us.ntp.org
+export SERVEUR_NTP=0.fr.ntp.org
 ./operations.sh
 ```
 
 Soit en une seule ligne:
 
 ```
-export URI_REPO_RECETTE=git@github.com:Jean-Baptiste-Lasselle/mise-a-l-heure.git && export PROVISONING_HOME=$HOME/horodatage-systeme && export GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa" && rm -rf $PROVISONING_HOME && mkdir -p $PROVISONING_HOME && cd $PROVISONING_HOME && git clone "$URI_REPO_RECETTE" . && sudo chmod +x operations.sh && ./operations.sh
+export URI_REPO_RECETTE=git@github.com:Jean-Baptiste-Lasselle/mise-a-l-heure.git && export PROVISONING_HOME=$HOME/horodatage-systeme && export GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa" && rm -rf $PROVISONING_HOME && mkdir -p $PROVISONING_HOME && cd $PROVISONING_HOME && git clone "$URI_REPO_RECETTE" . && sudo chmod +x operations.sh && export SERVEUR_NTP=0.fr.ntp.org && ./operations.sh 
 ```
 
 # Références
