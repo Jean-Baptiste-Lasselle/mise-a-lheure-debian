@@ -22,6 +22,8 @@ Cette recette a donc pour dépendances:
 
 # Utilisation
 
+Il vous suffit d'exécuter les instructions ci-dessous, la valeur de la variable d'environnement `SERVEUR_NTP` vous permet de fixer quel est le serveur NTP sur lequel votre instance d'OS se synchronisera.
+
 ```
 # export URI_REPO_RECETTE=https://github.com/Jean-Baptiste-Lasselle/provision-hote-docker-sur-centos
 export URI_REPO_RECETTE=git@github.com:Jean-Baptiste-Lasselle/mise-a-l-heure.git
