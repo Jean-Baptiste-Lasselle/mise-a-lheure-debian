@@ -25,7 +25,7 @@ Cette recette a donc pour dépendances:
 Il vous suffit d'exécuter les instructions ci-dessous, la valeur de la variable d'environnement `SERVEUR_NTP` vous permet de fixer quel est le serveur NTP sur lequel votre instance d'OS se synchronisera.
 
 ```
-# export URI_REPO_RECETTE=https://github.com/Jean-Baptiste-Lasselle/provision-hote-docker-sur-centos
+# export URI_REPO_RECETTE=https://github.com/Jean-Baptiste-Lasselle/mise-a-lheure-debian
 export URI_REPO_RECETTE=git@github.com:Jean-Baptiste-Lasselle/mise-a-l-heure.git
 export PROVISONING_HOME=$HOME/horodatage-systeme
 export GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa"
@@ -42,7 +42,7 @@ export SERVEUR_NTP=0.fr.ntp.org
 Soit en une seule ligne:
 
 ```
-export URI_REPO_RECETTE=git@github.com:Jean-Baptiste-Lasselle/mise-a-l-heure.git && export PROVISONING_HOME=$HOME/horodatage-systeme && export GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa" && rm -rf $PROVISONING_HOME && mkdir -p $PROVISONING_HOME && cd $PROVISONING_HOME && git clone "$URI_REPO_RECETTE" . && sudo chmod +x operations.sh && export SERVEUR_NTP=0.fr.ntp.org && ./operations.sh 
+export URI_REPO_RECETTE=git@github.com:Jean-Baptiste-Lasselle/mise-a-lheure-debian.git && export PROVISONING_HOME=$HOME/horodatage-systeme && export GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa" && rm -rf $PROVISONING_HOME && mkdir -p $PROVISONING_HOME && cd $PROVISONING_HOME && git clone "$URI_REPO_RECETTE" . && sudo chmod +x operations.sh && export SERVEUR_NTP=0.fr.ntp.org && ./operations.sh 
 ```
 
 # Références
