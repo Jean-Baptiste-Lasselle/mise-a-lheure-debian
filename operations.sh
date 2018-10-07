@@ -70,7 +70,7 @@ export SERVEUR_NTP=0.fr.pool.ntp.org
 ######### -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -
 ######### -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -
 
-
+ntptrace
 # --------------------------------------------------------------------------------------------------------------------------------------------
 ##############################################################################################################################################
 #########################################							FONCTIONS						##########################################
@@ -107,13 +107,20 @@ synchroniserSurServeurNTP () {
         # copie du fichier de conf NTP dans le système
         sudo cp ./etc.ntp.conf /etc/ntp.conf
         
-        sudo apt-get -y ntpdate
-        sudo ntpdate $SERVEUR_NTP
+        sudo systemctl enable ntp
+        
+        sudo systemctl restart ntp
+        echo " vérification de la liste des serveurs NTP de référence du système : "
+        sudo ntpq -p
+        sudo ntptrace
+        
+        # sudo apt-get -y ntpdate
+        # sudo ntpdate $SERVEUR_NTP
         echo "date après la re-synchronisation [Serveur NTP=$SERVEUR_NTP :]" >> $NOMFICHIERLOG
         date >> $NOMFICHIERLOG
         # pour re-synchroniser l'horloge matérielle, et ainsi conserver l'heure après un reboot, et ce y compris après et pendant
         # une coupure réseau
-        sudo hwclock --systohc
+        # sudo hwclock --systohc
 
 }
 
@@ -124,8 +131,8 @@ synchroniserSurServeurNTP () {
 ##############################################################################################################################################
 # --------------------------------------------------------------------------------------------------------------------------------------------
 
-echo " +++synchronistaion+ sur sereveur NTP  +  COMMENCEE  - " >> $NOMFICHIERLOG
+echo " +++synchronistaion+ sur serveur NTP  +  COMMENCEE  - " >> $NOMFICHIERLOG
 
 synchroniserSurServeurNTP
 
-echo " +++synchronistaion+ sur sereveur NTP  +  TERMINEE  - " >> $NOMFICHIERLOG
+echo " +++synchronistaion+ sur serveur NTP  +  TERMINEE  - " >> $NOMFICHIERLOG
