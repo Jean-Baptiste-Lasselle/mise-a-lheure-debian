@@ -1,4 +1,4 @@
-#!/bin/bash
+sudo apt-get install ntp#!/bin/bash
 # Hôte Docker sur centos 7
 ############################################################
 ############################################################
@@ -6,7 +6,7 @@
 ############################################################
 ############################################################
 
-# ----------------------------------------------------------
+# ------------------------------------------sudo apt-get install ntp----------------
 # [Pour Comparer votre version d'OS à
 #  celles mentionnées ci-dessous]
 # 
@@ -63,7 +63,9 @@ export MAISON_OPERATIONS=`pwd`
 # -
 export NOMFICHIERLOG="$MAISON_OPERATIONS/synchronisation-NTP-public.log"
 
-export SERVEUR_NTP=0.us.pool.ntp.org
+#export SERVEUR_NTP=0.us.pool.ntp.org
+export SERVEUR_NTP=0.fr.pool.ntp.org
+
 
 ######### -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -
 ######### -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -# -
@@ -99,7 +101,13 @@ synchroniserSurServeurNTP () {
         echo "date avant la re-synchronisation [Serveur NTP=$SERVEUR_NTP :]" >> $NOMFICHIERLOG
         date >> $NOMFICHIERLOG
         sudo which ntpdate
-        sudo yum install -y ntp
+        # sudo yum install -y ntp
+        sudo apt-get install -y ntp 
+        
+        # copie du fichier de conf NTP dans le système
+        sudo cp ./etc.ntp.conf /etc/ntp.conf
+        
+        sudo apt-get -y ntpdate
         sudo ntpdate $SERVEUR_NTP
         echo "date après la re-synchronisation [Serveur NTP=$SERVEUR_NTP :]" >> $NOMFICHIERLOG
         date >> $NOMFICHIERLOG
